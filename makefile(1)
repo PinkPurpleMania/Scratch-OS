@@ -1,0 +1,31 @@
+CC=gcc
+OPT=-Wall
+EXEC= couche5
+all : $(EXEC)
+
+couche1.o: couche1.c
+	$(CC) -o couche1.o -c couche1.c $(OPT)
+
+couche2.o: couche2.c
+	$(CC) -o couche2.o -c couche2.c $(OPT)
+
+couche3.o: couche3.c
+	$(CC) -o couche3.o -c couche3.c $(OPT)
+
+couche4.o: couche4.c
+	$(CC) -o couche4.o -c couche4.c $(OPT)
+
+couche5.o: couche5.c
+	$(CC) -o couche5.o -c couche5.c $(OPT)
+
+time_stamp.o: time_stamp.c
+	$(CC) -o time_stamp.o -c time_stamp.c $(OPT)
+
+
+
+
+$(EXEC): couche2.o couche1.o couche3.o couche4.o couche5.o time_stamp.o 
+	$(CC) couche2.o couche1.o couche3.o couche4.o couche5.o time_stamp.o -o $(EXEC)
+
+clean:
+	rm -rf *.o *.exe *.stackdump
